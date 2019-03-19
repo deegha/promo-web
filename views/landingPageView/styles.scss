@@ -1,0 +1,19 @@
+/**
+ * Created by Deegha on 19/03/2019
+ */
+ 
+.container {
+  .wrapper {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .filterWrapper {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
