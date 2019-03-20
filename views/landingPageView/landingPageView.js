@@ -38,7 +38,7 @@ export class LandingPageView extends React.Component {
 
     const { feeds } = this.props
     const { width, height, filter } = this.state
-    console.log(filter)
+    
     const isMobile = width < 600
 
     const filterStyles = {

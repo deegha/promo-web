@@ -1,9 +1,7 @@
 /**
  * Created by Deegha on 19/03/2019
  */
-
-import Fire  from './firebase'
-import { formatFeeds } from './helper'
+import feedStore from './feedStore'
 
 const baseUrl = "https://us-central1-like-me-65680.cloudfunctions.net/"
 // const baseUrl = 'http://localhost:5000/like-me-65680/us-central1/'
@@ -18,3 +16,4 @@ const POST = async (path, data) => {
 }   
 
 export const fetchFeeds = () => POST('getAllFeeds')
+export const fetchFeed = async (id) => feedStore.loadFeed(id)

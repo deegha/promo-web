@@ -24,7 +24,7 @@ export class FeedItem extends React.PureComponent {
     }
 
     return (
-      <Link  prefetch href={`/feed?id=${feed.id}`} as={`feed/${feed.postText.toLowerCase()}`} >
+      <Link   href={`/feed?slug=${feed.id}`}>
         <a className={css.link}>
           <div  className={css.container} style={containerStyles}> 
             <div className={css.imageArea}>
@@ -43,8 +43,6 @@ export class FeedItem extends React.PureComponent {
                   <img  
                     src={feed.userObj.image} />
                 </div>
-                
-
                 <div className={css.profileName}>{feed.userObj.name}</div>
               </div>
               <span className={css.location}>
@@ -53,7 +51,6 @@ export class FeedItem extends React.PureComponent {
             </div>
             ): <div /> }
           </div>
-         
         </a>
       </Link>
     )

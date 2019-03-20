@@ -12,7 +12,6 @@ import { LandingPageView } from '../views/landingPageView/landingPageView'
 class LandingPage extends React.Component {
 
   componentDidMount() {
-    console.log(this.props.feeds.feeds, "this.props.feeds.feeds")
     if(this.props.feeds.feeds.length < 1) {
       
       this.props.getFeeds()
