@@ -8,6 +8,8 @@ import { FeedItem } from './feedItem/feedItem'
 import { FilterTab } from './filterTab/filterTab'
 import  MapComponent  from './map/map'
 import { ErrorBoundary } from './errorBoundry/errorBoundry'
+import { TextInput } from './textInput/textInput'
+import { Button } from './button/button'
 
 export {
   Head,
@@ -15,5 +17,7 @@ export {
   FeedItem,
   FilterTab,
   MapComponent,
-  ErrorBoundary
+  ErrorBoundary,
+  TextInput,
+  Button  
 }

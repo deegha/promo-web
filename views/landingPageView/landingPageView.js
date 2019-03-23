@@ -5,11 +5,10 @@
 
 import Link from 'next/link'
 import { Header, FeedItem, FilterTab } from '../../components'
-import {APP_NAME} from '../../config/config'
+import { APP_NAME, APP_LOG } from '../../config/config'
 import * as CAT from '../../components/categories'
 
 import css from './styles.scss'
-const logo = `https://firebasestorage.googleapis.com/v0/b/like-me-65680.appspot.com/o/sitebranding%2Ficon.png?alt=media&token=91b86f11-7b5c-4a20-a014-ffdbc65bd575`
 
 export class LandingPageView extends React.Component {
 
@@ -57,7 +56,7 @@ export class LandingPageView extends React.Component {
     return (
       <div className={css.container}>
         <Header
-          ogImage={logo}
+          ogImage={APP_LOG}
           url={"/"}
           title={APP_NAME} 
           description={"Promotions and deals in Srilanka"}/>

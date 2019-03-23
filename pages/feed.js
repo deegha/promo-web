@@ -1,3 +1,7 @@
+/**
+ * Created by Deegha on 19/03/2019
+ */
+
 import { SinglePageView } from '../views/singlePageView/singlePageView'
 import { connect } from 'react-redux'
 import {  fetchFeeds } from '../services/backendClient'
