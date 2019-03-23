@@ -6,10 +6,14 @@ import Head  from './head/head'
 import Header from './header/header'
 import { FeedItem } from './feedItem/feedItem'
 import { FilterTab } from './filterTab/filterTab'
+import  MapComponent  from './map/map'
+import { ErrorBoundary } from './errorBoundry/errorBoundry'
 
 export {
   Head,
   Header,
   FeedItem,
-  FilterTab 
+  FilterTab,
+  MapComponent,
+  ErrorBoundary
 }

@@ -36,7 +36,7 @@ export class LandingPageView extends React.Component {
 
   render() {
 
-    const { feeds } = this.props
+    const { feeds, loading } = this.props
     const { width, height, filter } = this.state
     
     const isMobile = width < 600
@@ -61,7 +61,12 @@ export class LandingPageView extends React.Component {
           url={"/"}
           title={APP_NAME} 
           description={"Promotions and deals in Srilanka"}/>
-          <div className={css.filterWrapper} style={filterStyles}>
+
+          {loading? (
+            <div /> 
+          ): (
+            <div>
+              <div className={css.filterWrapper} style={filterStyles}>
             <FilterTab 
               title={"all"} selected={filter === CAT.ALL_CAT} callback={this.selectFilter} prop={CAT.ALL_CAT} />
             <FilterTab 
@@ -83,14 +88,17 @@ export class LandingPageView extends React.Component {
               title={"clothing"} selected={filter === CAT.CLOTHING_CAT} callback={this.selectFilter} prop={CAT.CLOTHING_CAT}/>
           </div>
           <div className={css.wrapper}  style={filterStyles}>
-            {filteredFeeds.map(feed => (
+            {feeds.length > 0 ? filteredFeeds.map(feed => (
               <FeedItem 
                 key={feed.id}
                 isMobile={isMobile}
                 height={height}
                 feed={feed} />
-            ))}
+            )): <div>No content</div>}
           </div>
+            </div>
+          )}
+          
       </div>
     )
   }

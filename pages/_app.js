@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 
 import styles from '../sharedStyles/styles.scss'
 
+
 class MyApp extends App {
   render () {
     const {Component, pageProps, reduxStore} = this.props

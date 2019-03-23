@@ -2,6 +2,7 @@
  * Created by Deegha on 19/03/2019
  */
  
+ 
 .space {
   height: 60px;
 }
@@ -24,7 +25,9 @@
   .headerLeft {
     padding: 20px;
     .siteName {
-      font-size: 20px;
+      font-size: 25px;
+      font-family: 'saria regular';
+      margin: 0
     }
     .logo {
       width: 25px;
@@ -35,6 +38,13 @@
       color: #00bcd4;
       display: flex;
       align-items: center;
+    }
+    .tagline {
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin: 0;
+      color: #000;
+      font-family: 'saria regular';
     }
   }
 

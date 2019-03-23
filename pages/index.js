@@ -19,9 +19,9 @@ class LandingPage extends React.Component {
   }
 
   render() {
-    const { feeds } = this.props.feeds
+    const { feeds, loading } = this.props.feeds
     return (
-      <LandingPageView feeds={feeds} />
+      <LandingPageView feeds={feeds} loading={loading && feeds.length < 1} />
     )
   }
 }

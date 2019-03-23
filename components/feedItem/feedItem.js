@@ -8,24 +8,37 @@ import Link from 'next/link'
 export class FeedItem extends React.PureComponent {
 
   state = {
-    loading: true
+    loading: true,
+    redirecting: false
   }
 
   onLoadImage = () => {
     this.setState({loading: false})
   }
 
+  redirect = () => {
+    this.setState({redirecting: true})
+  }
+
   render() {
     const { feed, isMobile } = this.props
+    const { redirecting } = this.state
 
     const containerStyles = {
       width: isMobile? '150px': '250px',
       margin: isMobile? '10px 3px' : '10px',
     }
-
+    
     return (
       <Link   href={`/feed?slug=${feed.id}`}>
-        <a className={css.link}>
+        <a className={css.link} onClick={this.redirect}>
+          {redirecting? (
+            <div className={css.container}> 
+              <div className={css.redirectContainer}>
+                redirecting
+              </div>
+            </div>
+          ): (
           <div  className={css.container} style={containerStyles}> 
             <div className={css.imageArea}>
               <img 
@@ -51,6 +64,8 @@ export class FeedItem extends React.PureComponent {
             </div>
             ): <div /> }
           </div>
+          )}
+          
         </a>
       </Link>
     )

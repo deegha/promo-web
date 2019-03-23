@@ -2,9 +2,10 @@
  * Created by Deegha on 19/03/2019
  */
 import feedStore from './feedStore'
+const fetch = require("node-fetch")
 
 const baseUrl = "https://us-central1-like-me-65680.cloudfunctions.net/"
-// const baseUrl = 'http://localhost:5000/like-me-65680/us-central1/'
+// const baseUrl = "http://localhost:5000/like-me-65680/us-central1/"
 
 const POST = async (path, data) => {
   // console.log('post', baseUrl+path)
@@ -16,4 +17,4 @@ const POST = async (path, data) => {
 }   
 
 export const fetchFeeds = () => POST('getAllFeeds')
-export const fetchFeed = async (id) => feedStore.loadFeed(id)
+export const fetchFeed = async (id) => POST('getFeedById', {id})

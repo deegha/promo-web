@@ -34,6 +34,9 @@ class Header extends React.PureComponent {
                 </h1>
               </a>
             </Link>
+            <h3 className={css.tagline}>
+              Flaming your promotions
+            </h3>
           </div>
           <div className={css.headerRight}>
             {this.props.rightBtn}

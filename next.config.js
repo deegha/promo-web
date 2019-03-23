@@ -19,6 +19,6 @@ module.exports = withCSS(withSass({
     importLoaders: 1,
     localIdentName: "[local]___[hash:base64:5]",
   },
-  target: 'serverless'
+  target: 'serverless',
 }))
 

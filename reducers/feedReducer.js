@@ -6,7 +6,7 @@ import * as Actions from '../actions/feedsActions'
 
 const initialState = {
   feeds : [],
-  loading: false,
+  loading: true,
   creating: false
 }
 
