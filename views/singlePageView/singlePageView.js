@@ -2,6 +2,8 @@ import { Header, MapComponent } from '../../components'
 import css from './styles.scss'
 import {APP_NAME} from '../../config/config'
 
+import { Twitter, Facebook } from 'react-social-sharing'
+
 export class SinglePageView extends React.Component {
 
   state={
@@ -44,8 +46,13 @@ export class SinglePageView extends React.Component {
         <div className={css.wrapper} style={wrapperStyles} >
           <div className={css.imageArea} style={container}>
             <img src={feed.postMedia.url} />
+            <Facebook link={`https://promo-web.deegha.now.sh/feed?slug=${feed.id}`} />
+            <Twitter link={`https://promo-web.deegha.now.sh/feed?slug=${feed.id}`} />
           </div>
           <div className={css.detailsArea} style={container}>
+         
+
+          
             <h1>{feed.postText}</h1>
             <div className={css.branding}>
               <div className={css.profile}>
@@ -62,6 +69,7 @@ export class SinglePageView extends React.Component {
             </div>
             <p className={css.location}> 
               {feed.location.description}
+              
             </p>
           </div>
         </div>

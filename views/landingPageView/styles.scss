@@ -3,7 +3,10 @@
  */
  
 .container {
+  display: block;
+
   .wrapper {
+    
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -17,3 +20,13 @@
     flex-wrap: wrap;
   }
 }
+
+// .container {
+
+//   .filterWrapper {
+//     padding: 10px;
+//     display: flex;
+//     justify-content: center;
+//     flex-wrap: wrap;
+//   }
+// }

@@ -1,6 +1,7 @@
 .link {
   text-decoration: none;
-  color: inherit
+  color: inherit;
+  display: block;
 }
 
 
@@ -23,7 +24,7 @@
   overflow: hidden;
   align-items: flex-start;
   cursor: pointer;
-  animation: slideInFromLeft 0.3s ease-in ;
+  animation: slideInFromLeft 0.5s ease-in ;
 
   .imageArea {
 

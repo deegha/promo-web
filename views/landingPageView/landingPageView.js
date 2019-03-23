@@ -5,12 +5,12 @@
 
 import Link from 'next/link'
 import { Header, FeedItem, FilterTab } from '../../components'
-import {APP_NAME} from '../../config/config'
+import {APP_NAME, LOGO} from '../../config/config'
 import * as CAT from '../../components/categories'
-
+import MasonryLayout from 'react-masonry-layout'
 import css from './styles.scss'
-const logo = `https://firebasestorage.googleapis.com/v0/b/like-me-65680.appspot.com/o/sitebranding%2Ficon.png?alt=media&token=91b86f11-7b5c-4a20-a014-ffdbc65bd575`
 
+import Masonry from 'react-masonry-component'
 export class LandingPageView extends React.Component {
 
   state={
@@ -32,13 +32,15 @@ export class LandingPageView extends React.Component {
     this.setState({ width: window.innerWidth, height: window.innerHeight })
   }
 
-  selectFilter = (filter) => () => this.setState({filter})
+  selectFilter = (filter) => () => this.props.setFilter(filter)
+
+  // selectFilter = (filter) => () => this.setState({filter})
 
   render() {
 
-    const { feeds, loading } = this.props
-    const { width, height, filter } = this.state
-    
+    const { feeds, loading, filter } = this.props
+    const { width, height } = this.state
+    console.log(filter, "filter")
     const isMobile = width < 600
 
     const filterStyles = {
@@ -57,7 +59,7 @@ export class LandingPageView extends React.Component {
     return (
       <div className={css.container}>
         <Header
-          ogImage={logo}
+          ogImage={LOGO}
           url={"/"}
           title={APP_NAME} 
           description={"Promotions and deals in Srilanka"}/>
@@ -96,7 +98,24 @@ export class LandingPageView extends React.Component {
                 feed={feed} />
             )): <div>No content</div>}
           </div>
-            </div>
+          {/* <div className={css.wrapper}>
+          <Masonry
+          elementType={'ul'}
+                style={{width:width-200}}
+                className={'my-gallery-class'}
+                onClick={this.handleClick}
+            >
+          
+          {feeds.length > 0 ? filteredFeeds.map(feed => (
+              <FeedItem 
+                key={feed.id}
+                isMobile={isMobile}
+                height={height}
+                feed={feed} />
+            )): <div>No content</div>}
+          </Masonry>
+          </div> */}
+          </div>
           )}
           
       </div>
