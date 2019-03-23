@@ -4,10 +4,8 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-
 import { fetchFeedsAction } from '../actions/feedsActions'
 import { setFilter } from '../actions/filterActions'
-
 import { LandingPageView } from '../views/landingPageView/landingPageView'
 
 class LandingPage extends React.Component {

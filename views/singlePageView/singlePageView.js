@@ -44,11 +44,14 @@ export class SinglePageView extends React.Component {
             title={`${APP_NAME} | ${feed.postText}`} 
             description={feed.postText}/>
         <div className={css.wrapper} style={wrapperStyles} >
-          <div className={css.imageArea} style={container}>
-            <img src={feed.postMedia.url} />
-            <Facebook link={`https://promo-web.deegha.now.sh/feed?slug=${feed.id}`} />
-            <Twitter link={`https://promo-web.deegha.now.sh/feed?slug=${feed.id}`} />
-          </div>
+          {isMobile?(
+            <div className={css.imageArea} style={container}>
+              <img src={feed.postMedia.url} />
+              <Facebook link={`https://promo-web.deegha.now.sh/feed?slug=${feed.id}`} />
+              <Twitter link={`https://promo-web.deegha.now.sh/feed?slug=${feed.id}`} />
+            </div>
+          ):<div/>}
+          
           <div className={css.detailsArea} style={container}>
          
 
@@ -72,6 +75,13 @@ export class SinglePageView extends React.Component {
               
             </p>
           </div>
+          {!isMobile?(
+            <div className={css.imageArea} style={container}>
+              <img src={feed.postMedia.url} />
+              <Facebook link={`https://promo-web.deegha.now.sh/feed?slug=${feed.id}`} />
+              <Twitter link={`https://promo-web.deegha.now.sh/feed?slug=${feed.id}`} />
+            </div>
+          ):<div/>}
         </div>
         
       </div>

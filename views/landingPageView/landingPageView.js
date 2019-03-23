@@ -40,7 +40,6 @@ export class LandingPageView extends React.Component {
 
     const { feeds, loading, filter } = this.props
     const { width, height } = this.state
-    console.log(filter, "filter")
     const isMobile = width < 600
 
     const filterStyles = {
@@ -50,12 +49,10 @@ export class LandingPageView extends React.Component {
     let filteredFeeds = feeds
 
     if(filter !== 'all') {
-      // title = this.capitalize(filter)
       filteredFeeds = feeds.filter(feed => {
         return feed.category === filter
       })
     }
-
     return (
       <div className={css.container}>
         <Header
@@ -70,7 +67,7 @@ export class LandingPageView extends React.Component {
             <div>
               <div className={css.filterWrapper} style={filterStyles}>
             <FilterTab 
-              title={"all"} selected={filter === CAT.ALL_CAT} callback={this.selectFilter} prop={CAT.ALL_CAT} />
+              title={"Trending"} selected={filter === CAT.ALL_CAT} callback={this.selectFilter} prop={CAT.ALL_CAT} />
             <FilterTab 
               title={"fashion"} selected={filter === CAT.FASHION_CAT} callback={this.selectFilter} prop={CAT.FASHION_CAT}/>
             <FilterTab 
@@ -90,33 +87,16 @@ export class LandingPageView extends React.Component {
               title={"clothing"} selected={filter === CAT.CLOTHING_CAT} callback={this.selectFilter} prop={CAT.CLOTHING_CAT}/>
           </div>
           <div className={css.wrapper}  style={filterStyles}>
-            {feeds.length > 0 ? filteredFeeds.map(feed => (
+            {filteredFeeds.length > 0 ? filteredFeeds.map(feed => (
               <FeedItem 
                 key={feed.id}
                 isMobile={isMobile}
                 height={height}
                 feed={feed} />
-            )): <div>No content</div>}
+            )): <div className={css.noContent}>Sorry! no content on this category</div>}
           </div>
-          {/* <div className={css.wrapper}>
-          <Masonry
-          elementType={'ul'}
-                style={{width:width-200}}
-                className={'my-gallery-class'}
-                onClick={this.handleClick}
-            >
-          
-          {feeds.length > 0 ? filteredFeeds.map(feed => (
-              <FeedItem 
-                key={feed.id}
-                isMobile={isMobile}
-                height={height}
-                feed={feed} />
-            )): <div>No content</div>}
-          </Masonry>
-          </div> */}
-          </div>
-          )}
+        </div>
+        )}
           
       </div>
     )
