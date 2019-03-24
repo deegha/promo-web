@@ -1,59 +1,84 @@
 import React from 'react'
 import Link from 'next/link'
+import css from './styles.scss'
 
-const links = [
-  { href: 'https://github.com/segmentio/create-next-app', label: 'Github' }
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
 
-const Nav = () => (
-  <nav>
-    <ul>
-      <li>
+class Nav extends React.PureComponent {
+
+  state = {
+    moblieMenuOpen: false 
+  }
+
+  renderMenuItems = () => {
+
+    const items = <ul>
+      <li>  
         <Link prefetch href="/">
           <a>Home</a>
         </Link>
       </li>
-      <ul>
-        {links.map(({ key, href, label }) => (
-          <li key={key}>
-            <Link href={href}>
-              <a>{label}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+    
+      <li>  
+        <Link prefetch href="/contact-us">
+          <a>Contact us</a>
+        </Link>
+      </li>
+    
+      <li>  
+        <Link prefetch href="/privacy">
+          <a>Privacy policy</a>
+        </Link>
+      </li>
     </ul>
 
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
-  </nav>
-)
+    return items
+  }
+
+  togleMenu = () => {
+    this.setState(preState => ({moblieMenuOpen: !preState.moblieMenuOpen}))
+  }
+
+  render() {
+    const { isMobile } = this.props
+    const {moblieMenuOpen} = this.state
+    
+    const clsMMenu = moblieMenuOpen?css.mMenuOpen:css.mMenuClose
+    // const clsMMenu = css.mMenuOpen  
+    if(isMobile)
+      return (
+        <div>
+          <div className={css.mobileMenu} onClick={this.togleMenu}>
+            <div className={css.mobileMenuDot} />
+            <div className={css.mobileMenuDot} />
+            <div className={css.mobileMenuDot} />
+          </div>
+          <div className={clsMMenu}>
+            <div className={css.menuItems}>
+            {this.renderMenuItems()}
+            </div>
+          </div>
+        </div>
+      )
+
+    return(
+      <nav className={css.mainMenu}>
+        {this.renderMenuItems()}
+      </nav>
+    )
+  }
+}
+
 
 export default Nav
+
+
+
+{/* <ul>
+{links.map(({ key, href, label }) => (
+  <li key={key}>
+    <Link href={href}>
+      <a>{label}</a>
+    </Link>
+  </li>
+))}
+</ul> */}

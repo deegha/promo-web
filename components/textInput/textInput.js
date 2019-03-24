@@ -1,4 +1,8 @@
 
+/**
+ * Created by Deegha on 23/03/2019
+ */
+
 import css from './styles.scss'
 import PropTypes from 'prop-types'
 
@@ -8,6 +12,10 @@ export class TextInput extends React.PureComponent {
     type: 'text'
   }
 
+  componentDidMount(){
+    this.setState({type: this.props.type})
+  }
+
   onUpdateText = (e) => {
     const { onChange, name } = this.props
     onChange(name, e.target.value)
@@ -15,11 +23,20 @@ export class TextInput extends React.PureComponent {
 
   render() {
     const { type } = this.state 
-    const { placeholder } = this.props
+    const { placeholder, value } = this.props
+
+    if(type === 'largeText') {
+     return(
+      <div className={css.inputContainer}>
+        <textarea value={value} placeholder={placeholder} onChange={this.onUpdateText} />
+      </div>
+     )
+    }
 
     return(
       <div className={css.inputContainer}>
         <input 
+          value={value}
           placeholder={placeholder}
           type={type} 
           onChange={this.onUpdateText}  />

@@ -1,21 +1,36 @@
 /**
  * Created by Deegha on 19/03/2019
  */
+import { connect } from 'react-redux'
+import { setWindowDimentions } from '../../actions/windowActions'
 
 import css from './styles.scss'
 import Link from 'next/link'
 import propTypes from 'prop-types'
 import {APP_NAME} from '../../config/config'
-import { Head } from '../'
+import { Head, Nav } from '../'
 
 const logo = '../../static/logo.png'
 
 class Header extends React.PureComponent {
 
+  componentDidMount() {
+    this.updateWindowDimensions()
+    window.addEventListener('resize', this.updateWindowDimensions)
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions)
+  }
+  
+  updateWindowDimensions = () => {
+    this.props.setDim({ width: window.innerWidth, height: window.innerHeight })
+  }
+
   render () {
 
-    const { title, description, url, ogImage, rightBtn } = this.props
-
+    const { title, description, url, ogImage, rightBtn, window:{isMobile} } = this.props
+    
     return(
       <div>
         <Head 
@@ -39,6 +54,7 @@ class Header extends React.PureComponent {
             </h3>
           </div>
           <div className={css.headerRight}>
+            <Nav isMobile={isMobile} />
             {this.props.rightBtn}
           </div>
         </div>
@@ -56,5 +72,13 @@ Header.propTypes = {
   rightBtn: propTypes.any
 }
 
+const mapStateToProps = ({window}) => ({
+  window
+})
 
-export default Header
+const mapDispatchToProps = (dispatch) => ({
+  setDim: (dim) => dispatch(setWindowDimentions(dim))
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header) 

@@ -1,3 +1,7 @@
+/**
+ * Created by Deegha on 19/03/2019
+ */
+
 import { SinglePageView } from '../views/singlePageView/singlePageView'
 import { connect } from 'react-redux'
 import {  fetchFeeds } from '../services/backendClient'
@@ -14,14 +18,12 @@ class SinglePage extends React.PureComponent {
   
       return {slug, feed}
     }catch(err) {
-      console.log(err,"sdfdsafsd")
       return {err}
     }
   }
 
   render() {
     const { feed, err } = this.props
-    console.log(err)
     return (
       <ErrorBoundary>
         <SinglePageView feed={feed} />

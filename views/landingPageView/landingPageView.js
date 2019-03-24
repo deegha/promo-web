@@ -5,7 +5,7 @@
 
 import Link from 'next/link'
 import { Header, FeedItem, FilterTab } from '../../components'
-import {APP_NAME, LOGO} from '../../config/config'
+import { APP_NAME, APP_LOG } from '../../config/config'
 import * as CAT from '../../components/categories'
 import MasonryLayout from 'react-masonry-layout'
 import css from './styles.scss'
@@ -56,7 +56,7 @@ export class LandingPageView extends React.Component {
     return (
       <div className={css.container}>
         <Header
-          ogImage={LOGO}
+          ogImage={APP_LOG}
           url={"/"}
           title={APP_NAME} 
           description={"Promotions and deals in Srilanka"}/>

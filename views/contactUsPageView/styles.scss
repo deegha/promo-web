@@ -5,7 +5,7 @@
   align-items: flex-start;
 
   .form {
-    width: 35%;
+    width: 50%;
     padding-top: 50px;
     justify-content: center;
     align-items: flex-start;
@@ -17,8 +17,33 @@
       color: #00bcd4;
     }
     .formController {
-      width: 300px;
+      width: 100%;
       margin: 10px 0;
     }
+  }
+}
+
+.thankYou {
+  color: #00bcd4;
+  font-family: 'inter regular';
+  animation: activate .6s linear ;
+  font-size: 18px;
+  text-align: center;
+} 
+
+.noMessage {
+  color: #00bcd4;
+  font-family: 'inter regular';
+  font-size: 18px;
+  text-align: center;
+}
+
+
+@keyframes activate {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    transform: 1;
   }
 }
