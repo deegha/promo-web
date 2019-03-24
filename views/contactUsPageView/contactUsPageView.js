@@ -5,8 +5,6 @@ import {APP_NAME, APP_LOG} from '../../config/config'
 
 export const ContactUsPageView = ({isMobile, sent, validForm, handlechange, dosubmit, name, email, message}) => {
 
-  console.log(isMobile,"isMobile")
-
   const formStyles = {
     width: isMobile? '100%':'50%'
   }
