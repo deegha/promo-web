@@ -5,11 +5,14 @@
 
 import css from './styles.scss'
 import PropTypes from 'prop-types'
+import { validateEmail } from '../../services/helper'
 
 export class TextInput extends React.PureComponent {
 
   state={
-    type: 'text'
+    type: 'text',
+    error: '',
+    value: ''
   }
 
   componentDidMount(){
@@ -18,22 +21,42 @@ export class TextInput extends React.PureComponent {
 
   onUpdateText = (e) => {
     const { onChange, name } = this.props
+    this.validate(e.target.value)
     onChange(name, e.target.value)
   }
 
+  setError = (erroText) => this.setState({error: erroText})
+
+  validate = (text) => {
+    const {lable,type } = this.props
+
+    text === ""? this.setError(lable+' field is required'): this.setError('')
+    this.setState({value: text})
+
+    if(type === 'email') {
+      !validateEmail(text)? this.setError('Enter a valid email'): this.setError('')
+    }
+  }
+
   render() {
-    const { type } = this.state 
-    const { placeholder, value } = this.props
+    const { type, value,error } = this.state 
+    const { placeholder } = this.props
 
     if(type === 'largeText') {
      return(
+      <React.Fragment>
       <div className={css.inputContainer}>
         <textarea value={value} placeholder={placeholder} onChange={this.onUpdateText} />
       </div>
+      <div className={css.errorConatainer}>
+        {error && <span>{error}</span>}
+      </div>
+      </React.Fragment>
      )
     }
 
     return(
+      <React.Fragment>
       <div className={css.inputContainer}>
         <input 
           value={value}
@@ -41,6 +64,10 @@ export class TextInput extends React.PureComponent {
           type={type} 
           onChange={this.onUpdateText}  />
       </div>
+      <div className={css.errorConatainer}>
+        {error && <span>{error}</span>}
+      </div>
+      </React.Fragment>
     )
   }
   

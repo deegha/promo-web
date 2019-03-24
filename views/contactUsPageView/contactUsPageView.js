@@ -29,7 +29,7 @@ export const ContactUsPageView = ({isMobile, sent, validForm, handlechange, dosu
             value={email}
             name={'email'}
             lable={"Email"}
-            type={"text"} 
+            type={"email"} 
             placeholder="Your email"
             onChange={handlechange}/>
         </div>
