@@ -14,7 +14,7 @@ export const ContactUsPageView = ({isMobile, sent, validForm, handlechange, dosu
       <Header
         ogImage={APP_LOG}
         url={`https://promo-web.deegha.now.sh/contact-us`}
-        title={`${APP_NAME} | Contact us`} 
+        title={`Contact us | ${APP_NAME}`} 
         description={`Contact us for more information`}/>
 
     <div className={css.container}>

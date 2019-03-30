@@ -19,6 +19,12 @@ export class TextInput extends React.PureComponent {
     this.setState({type: this.props.type})
   }
 
+  componentDidUpdate(preProps) {
+    if(preProps.value !== this.props.value) {
+      this.setState({value: this.props.value})
+    }
+  }
+
   onUpdateText = (e) => {
     const { onChange, name } = this.props
     this.validate(e.target.value)
@@ -31,7 +37,6 @@ export class TextInput extends React.PureComponent {
     const {lable,type } = this.props
 
     text === ""? this.setError(lable+' field is required'): this.setError('')
-    this.setState({value: text})
 
     if(type === 'email') {
       !validateEmail(text)? this.setError('Enter a valid email'): this.setError('')

@@ -41,7 +41,7 @@ export class SinglePageView extends React.Component {
         <Header
             ogImage={feed.postMedia.url}
             url={`https://promo-web.deegha.now.sh/feed?slug=${feed.id}`}
-            title={`${APP_NAME} | ${feed.postText}`} 
+            title={`${feed.postText} | ${APP_NAME}`} 
             description={feed.postText}/>
         <div className={css.wrapper} style={wrapperStyles} >
           {isMobile?(

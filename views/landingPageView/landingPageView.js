@@ -58,7 +58,7 @@ export class LandingPageView extends React.Component {
         <Header
           ogImage={APP_LOG}
           url={"/"}
-          title={APP_NAME} 
+          title={`${APP_NAME} | ${filter}`} 
           description={"Promotions and deals in Srilanka"}/>
 
           {loading? (
@@ -70,6 +70,8 @@ export class LandingPageView extends React.Component {
               title={"Trending"} selected={filter === CAT.ALL_CAT} callback={this.selectFilter} prop={CAT.ALL_CAT} />
             <FilterTab 
               title={"fashion"} selected={filter === CAT.FASHION_CAT} callback={this.selectFilter} prop={CAT.FASHION_CAT}/>
+            <FilterTab 
+              title={"food"} selected={filter === CAT.FOOD_CAT} callback={this.selectFilter} prop={CAT.FOOD_CAT}/>
             <FilterTab 
               title={"travel"} selected={filter === CAT.TRAVEL_CAT} callback={this.selectFilter} prop={CAT.TRAVEL_CAT}/>
             <FilterTab 

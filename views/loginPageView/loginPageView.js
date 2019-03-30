@@ -16,7 +16,7 @@ export class LoginPageView extends React.Component {
          <Header
           ogImage={APP_LOG}
           url={"/login"}
-          title={APP_NAME} 
+          title={`Login | ${APP_NAME}`} 
           description={"Promotions and deals in Srilanka"}/>
         <div className={css.container}>
           {/* <div className={css.imageSlider}>
