@@ -1,6 +1,6 @@
 import { Header, MapComponent } from '../../components'
 import css from './styles.scss'
-import {APP_NAME} from '../../config/config'
+import { APP_NAME, APP_BASE_URL } from '../../config/config'
 
 import { Twitter, Facebook } from 'react-social-sharing'
 
@@ -40,15 +40,15 @@ export class SinglePageView extends React.Component {
       <div className={css.container} style={{width:this.state.width}} >
         <Header
             ogImage={feed.postMedia.url}
-            url={`https://promo-web.deegha.now.sh/feed?slug=${feed.id}`}
+            url={`${APP_BASE_URL}/feed?slug=${feed.id}`}
             title={`${feed.postText} | ${APP_NAME}`} 
             description={feed.postText}/>
         <div className={css.wrapper} style={wrapperStyles} >
           {isMobile?(
             <div className={css.imageArea} style={container}>
               <img src={feed.postMedia.url} />
-              <Facebook link={`https://promo-web.deegha.now.sh/feed?slug=${feed.id}`} />
-              <Twitter link={`https://promo-web.deegha.now.sh/feed?slug=${feed.id}`} />
+              <Facebook link={`${APP_BASE_URL}/feed?slug=${feed.id}`} />
+              <Twitter link={`${APP_BASE_URL}/feed?slug=${feed.id}`} />
             </div>
           ):<div/>}
           

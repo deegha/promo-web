@@ -15,7 +15,7 @@ export const ContactUsPageView = ({isMobile, sent, validForm, handlechange, dosu
         ogImage={APP_LOG}
         url={`https://promo-web.deegha.now.sh/contact-us`}
         title={`Contact us | ${APP_NAME}`} 
-        description={`Contact us for more information`}/>
+        description={`Contact the team at promoapp.lk for more information on how you can register your business with us, or just share your feed back`}/>
 
     <div className={css.container}>
       <div className={css.form} style={formStyles}>

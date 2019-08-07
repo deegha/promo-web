@@ -4,7 +4,7 @@
 
 import { TextInput, Button, Header } from '../../components' 
 import css from './styles.scss'
-import { APP_NAME, APP_LOG } from '../../config/config'
+import { APP_NAME, APP_LOG, APP_DESCRIPTION } from '../../config/config'
 
 
 export class LoginPageView extends React.Component {
@@ -17,7 +17,7 @@ export class LoginPageView extends React.Component {
           ogImage={APP_LOG}
           url={"/login"}
           title={`Login | ${APP_NAME}`} 
-          description={"Promotions and deals in Srilanka"}/>
+          description={APP_DESCRIPTION}/>
         <div className={css.container}>
           {/* <div className={css.imageSlider}>
             <ImageSlider />

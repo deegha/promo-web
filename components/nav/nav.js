@@ -25,7 +25,7 @@ class Nav extends React.PureComponent {
       </li>
     
       <li>  
-        <Link prefetch href="/privacy">
+        <Link prefetch href="/privacy-policy">
           <a>Privacy policy</a>
         </Link>
       </li>
