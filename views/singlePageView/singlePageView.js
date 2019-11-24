@@ -10,16 +10,16 @@ export class SinglePageView extends React.Component {
     width: 0,
     height: 0
   }
-  
+
   componentDidMount() {
     this.updateWindowDimensions()
     window.addEventListener('resize', this.updateWindowDimensions)
   }
-  
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWindowDimensions)
   }
-  
+
   updateWindowDimensions = () => {
     this.setState({ width: window.innerWidth, height: window.innerHeight })
   }
@@ -41,7 +41,7 @@ export class SinglePageView extends React.Component {
         <Header
             ogImage={feed.postMedia.url}
             url={`${APP_BASE_URL}/feed?slug=${feed.id}`}
-            title={`${feed.postText} | ${APP_NAME}`} 
+            title={`${feed.postText} | ${APP_NAME}`}
             description={feed.postText}/>
         <div className={css.wrapper} style={wrapperStyles} >
           {isMobile?(
@@ -51,11 +51,11 @@ export class SinglePageView extends React.Component {
               <Twitter link={`${APP_BASE_URL}/feed?slug=${feed.id}`} />
             </div>
           ):<div/>}
-          
-          <div className={css.detailsArea} style={container}>
-         
 
-          
+          <div className={css.detailsArea} style={container}>
+
+
+
             <h1>{feed.postText}</h1>
             <div className={css.branding}>
               <div className={css.profile}>
@@ -65,25 +65,24 @@ export class SinglePageView extends React.Component {
                 {feed.userObj.name}
               </h2>
             </div>
-           
-          
+
+
             <div className={css.mapContainer}>
               <MapComponent lng={feed.location.longitude} lat={feed.location.latitude} />
             </div>
-            <p className={css.location}> 
+            <p className={css.location}>
               {feed.location.description}
-              
             </p>
           </div>
           {!isMobile?(
             <div className={css.imageArea} style={container}>
               <img src={feed.postMedia.url} />
-              <Facebook link={`https://promo-web.deegha.now.sh/feed?slug=${feed.id}`} />
-              <Twitter link={`https://promo-web.deegha.now.sh/feed?slug=${feed.id}`} />
+              <Facebook link={`${APP_BASE_URL}/feed?slug=${feed.id}`} />
+              <Twitter link={`${APP_BASE_URL}/feed?slug=${feed.id}`} />
             </div>
           ):<div/>}
         </div>
-        
+
       </div>
     )
   }

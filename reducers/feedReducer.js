@@ -7,52 +7,43 @@ import * as Actions from '../actions/feedsActions'
 const initialState = {
   feeds : [],
   loading: true,
-  creating: false
+  creating: false,
+  page: 0,
+  nbPages: 0,
 }
 
 export const feedsReducer = (state=initialState, action) => {
   switch(action.type) {
-    case Actions.FETCH_FEEDS_REQUEST : 
+    case Actions.FETCH_FEEDS_REQUEST :
       return {
         ...state,
         loading: true
       }
-    case Actions.FETCH_FEEDS_FAIL: 
+    case Actions.FETCH_FEEDS_FAIL:
       return {
         ...state,
         loading: false
-      } 
+      }
     case Actions.FETCH_FEEDS_SUCCESS:
       return {
         ...state,
         loading: false,
-        feeds: action.feeds
+        feeds: action.feeds.hits,
+        page: action.feeds.page,
+        nbPages: action.feeds.nbPages
       }
-    // case Actions.VOTE_UP: 
-    //   const feeds = state.feeds
-
-    //   const newFeeds = feeds.map(feed => { 
-    //     if(feed.id === action.feedId) {
-          
-    //       const x  = {
-    //         ...feed,
-    //         voteUp: feed.voteUp+1,
-    //         currentUserLiked: true
-    //       }
-    //       console.log(x, "locatio feeds")
-    //       return x
-    //     }else {
-    //       return feed
-    //     }
-    //   })
-
-    //   // console.log(newFeeds, "location new feeds")
-
-    //   return {
-    //     ...state,
-    //     feeds:newFeeds
-    //   }
-    default : 
+    case Actions.FETCH_MORE_FEEDS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        feeds: {
+          ...state.feeds,
+          ...action.feeds.hits
+        },
+        page: action.feeds.page,
+        nbPages: action.feeds.nbPages
+      }
+    default :
       return state
   }
 }

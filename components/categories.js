@@ -3,7 +3,7 @@
  */
 
 
-export const ALL_CAT = 'all' 
+export const ALL_CAT = ''
 export const FOOD_CAT = 'food'
 export const CLOTHING_CAT = 'clothing'
 export const HEALTH_CAT = 'health'

@@ -30,9 +30,8 @@ export default class MyDocument extends Document {
     const { isProduction } = this.props
     return (
       <html>
-        
+
         <Head>
-          <link rel="stylesheet" href="/_next/static/style.css" />
         </Head>
         <body>
           <Main />
@@ -47,6 +46,9 @@ export default class MyDocument extends Document {
               <script dangerouslySetInnerHTML={this.setGoogleTags()} />
             </React.Fragment>
           )}
+
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"></link>
+        <link rel="stylesheet" href="/_next/static/style.css" />
         </body>
       </html>
     )

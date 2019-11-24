@@ -29,38 +29,40 @@ export class FeedItem extends React.PureComponent {
       margin: isMobile? '10px 3px' : '10px',
     }
 
-    
+
     return (
       <Link   href={`/feed?slug=${feed.id}`}>
         <a className={css.link} onClick={this.redirect} >
-          
-          <div  className={css.container} style={containerStyles} > 
+
+          <div  className={css.container} style={containerStyles} >
             <div className={css.imageArea}>
-              <img 
-                onLoad={this.onLoadImage} 
-                src={feed.postMedia.url} 
+              <img
+                onLoad={this.onLoadImage}
+                src={feed.image}
                 className={css.image} />
             </div>
             {!this.state.loading ? (
             <div className={css.detailArea}>
               <p className={css.title}>
-                {feed.postText}
+                {feed.title}
               </p>
               <div className={css.profile}>
                 <div className={css.profileImage}>
-                  <img  
-                    src={feed.userObj.image} />
+                  <img
+                    src={feed.business.image} />
                 </div>
-                <div className={css.profileName}>{feed.userObj.name}</div>
+                <div className={css.profileName}>{feed.business.name}</div>
               </div>
-              <span className={css.location}>
+
+              {/*#TODO add location descriotion*/}
+              {/* <span className={css.location}>
                 {feed.location.description}
-              </span>
+              </span> */}
             </div>
             ): <div /> }
           </div>
-          
-          
+
+
         </a>
       </Link>
     )
