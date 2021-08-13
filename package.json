@@ -13,7 +13,7 @@
     "firebase-admin": "^7.1.0",
     "firebase-functions": "^2.2.0",
     "google-maps-react": "^2.0.2",
-    "next": "^8.0.3",
+    "next": "^11.1.0",
     "next-plugin-transpile-modules": "^2.0.0",
     "node-fetch": "^2.3.0",
     "node-sass": "^4.11.0",
